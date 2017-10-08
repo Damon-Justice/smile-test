@@ -1,0 +1,22 @@
+<!--@subject Answer to message  @-->
+
+{{template config_path="design/email/header_template"}}
+<p style="font-size:18px;">Answer to your message</p>
+<p>Your message:</p>
+<br/>
+<p><strong>Name:</strong> <span>{{var name}}</span><br/>
+    <strong>Phone Number:</strong> <span>{{var telephone}}</span><br/>
+    <strong>Email:</strong> <span>{{var email}}</span><br/><br/>
+    <strong>Comment:</strong> <span>{{var comment}}</span><br/>
+    <strong>Received:</strong> <span>{{var received}}</span><br/>
+</p>
+<br/>
+<div style="text-align:left;font-weight:700;width:100%;">
+    <p>
+        <strong style="font-size:18px;">Answer:</strong> <br/><br/>
+    <div>{{var answer}}</div>
+    </p>
+</div>
+{{template config_path="design/email/footer_template"}}
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+ 
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Smile_Contact::admin"
+        	title="Contact Us"
+        	translate="title"
+            module="Smile_Contact"
+            sortOrder="20"
+            resource="Smile_Contact::admin"
+            />
+        <add id="Smile_Contact::contact" 
+            title="Contact Us"
+            translate="title"  
+            module="Smile_Contact" 
+            sortOrder="10" 
+            resource="Smile_Contact::admin"
+            parent="Smile_Contact::admin"
+            />
+
+        <add id="Smile_Contact::messages" 
+            title="Messages"
+            translate="title"  
+            module="Smile_Contact" 
+            sortOrder="20" 
+            resource="Smile_Contact::admin"
+            parent="Smile_Contact::contact"
+            action="smile/contact/index"
+            />
+	</menu>
+</config>
