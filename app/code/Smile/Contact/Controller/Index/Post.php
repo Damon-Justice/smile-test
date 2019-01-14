@@ -7,7 +7,7 @@
 namespace Smile\Contact\Controller\Index;
 
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\App\ObjectManager;
+use Smile\Contact\Model\Contact;
 
 class Post extends \Magento\Contact\Controller\Index\Post
 {
@@ -15,6 +15,19 @@ class Post extends \Magento\Contact\Controller\Index\Post
      * @var DataPersistorInterface
      */
     private $dataPersistor;
+
+    /**
+     * @var Model Contact
+     */
+    protected $contactModel;
+
+    public function __construct(
+        Contact $contactModel,
+        \Magento\Framework\App\Action\Context $context,
+    ) {
+        $this->contactModel = $contactModel;
+        parent::__construct($context);
+    }
 
     /**
      * Post user question
@@ -71,7 +84,7 @@ class Post extends \Magento\Contact\Controller\Index\Post
             $transport->sendMessage();
 
             //Save contact form to database
-            $model = $this->_objectManager->create('Smile\Contact\Model\Contact');
+            $model = $this->contactModel;
             $model->setData($post);
             $model->save();
             //Save contact form to database
